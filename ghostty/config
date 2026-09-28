@@ -1,0 +1,188 @@
+# =============================================================================
+# Ghostty Configuration for Claude Code
+# =============================================================================
+# Installed at: ~/Library/Application Support/com.mitchellh.ghostty/config
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Herdr Workspace Manager
+# Start Herdr only in Ghostty's first terminal surface. New tabs and splits keep
+# using the regular login shell.
+# -----------------------------------------------------------------------------
+initial-command = shell:exec "$HOME/.local/bin/herdr"
+
+# -----------------------------------------------------------------------------
+# Claude Code Support - Shift+Enter for newlines
+# -----------------------------------------------------------------------------
+keybind = shift+enter=text:\x1b\r
+
+# -----------------------------------------------------------------------------
+# Font Settings
+# -----------------------------------------------------------------------------
+# JetBrains Mono is the default and excellent for coding
+# Uncomment and change if you prefer a different font
+# font-family = JetBrains Mono
+font-size = 14
+font-thicken = true
+
+# Enable programming ligatures (=>  ->  !=  ===  etc.)
+font-feature = +liga
+font-feature = +calt
+
+# -----------------------------------------------------------------------------
+# Color Theme - Pure Black Background with Vibrant Colors
+# -----------------------------------------------------------------------------
+# Pure black background
+background = #000000
+foreground = #e0e0e0
+
+# Background transparency (0.0 = fully transparent, 1.0 = opaque)
+background-opacity = 0.85
+background-blur-radius = 20
+
+# Cursor
+cursor-color = #00ff00
+cursor-text = #000000
+cursor-style = block
+cursor-style-blink = true
+
+# Selection
+selection-background = #3a3a5a
+selection-foreground = #ffffff
+
+# -----------------------------------------------------------------------------
+# Color Palette (0-15) - Optimized for visibility on black background
+# -----------------------------------------------------------------------------
+# Normal colors (0-7)
+palette = 0=#1a1a1a
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#6eb6ff
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+
+# Bright colors (8-15)
+palette = 8=#6272a4
+palette = 9=#ff6e6e
+palette = 10=#69ff94
+palette = 11=#ffffa5
+palette = 12=#89c0ff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff
+
+# -----------------------------------------------------------------------------
+# Window Settings
+# -----------------------------------------------------------------------------
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+window-save-state = always
+
+# macOS specific - use transparent titlebar for cleaner look
+macos-titlebar-style = transparent
+macos-option-as-alt = true
+
+# Use non-native fullscreen to preserve transparency
+# Note: Tabs don't work in non-native fullscreen mode
+macos-non-native-fullscreen = true
+
+# -----------------------------------------------------------------------------
+# Split Pane Settings
+# -----------------------------------------------------------------------------
+# Opacity of unfocused split panes (0.0-1.0)
+unfocused-split-opacity = 0.9
+
+# -----------------------------------------------------------------------------
+# Shell Integration - Essential for Claude Code
+# -----------------------------------------------------------------------------
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# -----------------------------------------------------------------------------
+# Clipboard Settings - Required for Claude Code
+# -----------------------------------------------------------------------------
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+clipboard-paste-protection = true
+clipboard-trim-trailing-spaces = true
+
+# -----------------------------------------------------------------------------
+# Scrollback & Performance
+# -----------------------------------------------------------------------------
+scrollback-limit = 10000000
+
+# Mouse settings
+mouse-scroll-multiplier = 2
+mouse-hide-while-typing = true
+
+# -----------------------------------------------------------------------------
+# Minimum Contrast - Ensure readability
+# -----------------------------------------------------------------------------
+minimum-contrast = 1.1
+
+# -----------------------------------------------------------------------------
+# Bold is Bright - Makes bold text more visible
+# -----------------------------------------------------------------------------
+bold-is-bright = true
+
+# -----------------------------------------------------------------------------
+# Useful Keybindings
+# -----------------------------------------------------------------------------
+# Herdr shortcuts. \x02 is Herdr's default Ctrl+B prefix.
+# These replace Ghostty's matching Cmd shortcuts only.
+# Cmd+T opens a Herdr tab; Cmd+D and Cmd+Shift+D split the focused Herdr pane.
+keybind = cmd+KeyT=text:\x02c
+keybind = cmd+t=unbind
+
+# Cmd+W closes the focused Herdr pane; Cmd+Shift+W closes its Herdr tab.
+keybind = cmd+KeyW=text:\x02x
+keybind = cmd+w=unbind
+keybind = cmd+shift+KeyW=text:\x02X
+keybind = cmd+shift+w=unbind
+
+# Quick tab navigation
+keybind = cmd+1=goto_tab:1
+keybind = cmd+2=goto_tab:2
+keybind = cmd+3=goto_tab:3
+keybind = cmd+4=goto_tab:4
+keybind = cmd+5=goto_tab:5
+keybind = cmd+6=goto_tab:6
+keybind = cmd+7=goto_tab:7
+keybind = cmd+8=goto_tab:8
+keybind = cmd+9=goto_tab:9
+
+# Split panes in Herdr
+keybind = cmd+KeyD=text:\x02v
+keybind = cmd+d=unbind
+keybind = cmd+shift+KeyD=text:\x02-
+keybind = cmd+shift+d=unbind
+
+# Navigate between Ghostty splits
+keybind = cmd+opt+left=goto_split:left
+keybind = cmd+opt+right=goto_split:right
+keybind = cmd+opt+up=goto_split:top
+keybind = cmd+opt+down=goto_split:bottom
+
+# Navigate between Herdr panes
+keybind = cmd+alt+KeyH=text:\x02h
+keybind = cmd+alt+KeyJ=text:\x02j
+keybind = cmd+alt+KeyK=text:\x02k
+keybind = cmd+alt+KeyL=text:\x02l
+
+# Navigate between Herdr panes with the macOS arrow-key convention
+keybind = cmd+left=text:\x02h
+keybind = cmd+down=text:\x02j
+keybind = cmd+up=text:\x02k
+keybind = cmd+right=text:\x02l
+
+# Font size adjustments
+keybind = cmd+plus=increase_font_size:1
+keybind = cmd+minus=decrease_font_size:1
+keybind = cmd+0=reset_font_size
+
+# Reload config
+keybind = cmd+shift+comma=reload_config

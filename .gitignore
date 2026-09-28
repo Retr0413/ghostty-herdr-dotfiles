@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+*.sock
+*.bak
+*.backup.*
+herdr/session.json
+herdr/sessions/
+herdr/release-notes.json
+herdr/.plugins.lock
