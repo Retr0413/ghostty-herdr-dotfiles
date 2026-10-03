@@ -144,16 +144,22 @@ keybind = cmd+w=unbind
 keybind = cmd+shift+KeyW=text:\x02X
 keybind = cmd+shift+w=unbind
 
-# Quick tab navigation
-keybind = cmd+1=goto_tab:1
-keybind = cmd+2=goto_tab:2
-keybind = cmd+3=goto_tab:3
-keybind = cmd+4=goto_tab:4
-keybind = cmd+5=goto_tab:5
-keybind = cmd+6=goto_tab:6
-keybind = cmd+7=goto_tab:7
-keybind = cmd+8=goto_tab:8
-keybind = cmd+9=goto_tab:9
+# Quick tab navigation (Herdr tabs)
+# Tabs are created by Herdr (Cmd+T sends \x02c), so Ghostty never opens its own
+# tabs and goto_tab has nothing to match. Send Herdr's Ctrl+B prefix plus the
+# digit instead, which triggers Herdr's switch_tab = "prefix+1..9".
+keybind = cmd+1=text:\x021
+keybind = cmd+2=text:\x022
+keybind = cmd+3=text:\x023
+keybind = cmd+4=text:\x024
+keybind = cmd+5=text:\x025
+keybind = cmd+6=text:\x026
+keybind = cmd+7=text:\x027
+keybind = cmd+8=text:\x028
+# Cmd+9 jumps to the last tab, following the macOS convention. It sends
+# prefix+0, which Herdr maps to the focus-last-tab helper. Ctrl+B then 9
+# still goes to tab 9.
+keybind = cmd+9=text:\x020
 
 # Split panes in Herdr
 keybind = cmd+KeyD=text:\x02v

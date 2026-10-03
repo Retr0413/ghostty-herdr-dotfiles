@@ -12,6 +12,8 @@ herdr_source="$repo_dir/herdr/config.toml"
 ghostty_target="$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 herdr_target="$HOME/.config/herdr/config.toml"
 herdr_bin="$HOME/.local/bin/herdr"
+focus_last_tab_source="$repo_dir/herdr/focus-last-tab.sh"
+focus_last_tab_target="$HOME/.local/bin/herdr-focus-last-tab"
 
 backup_existing() {
   target=$1
@@ -56,5 +58,10 @@ fi
 
 link_config "$ghostty_source" "$ghostty_target"
 link_config "$herdr_source" "$herdr_target"
+
+# Cmd+9 (prefix+0) runs this helper, referenced from herdr/config.toml by a
+# fixed path so the binding keeps working wherever the repo is cloned.
+chmod +x "$focus_last_tab_source"
+link_config "$focus_last_tab_source" "$focus_last_tab_target"
 
 printf '%s\n' 'Done. Restart Ghostty to use the new configuration.'

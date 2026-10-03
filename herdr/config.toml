@@ -18,3 +18,18 @@ pane_history = false
 # Keep the Japanese IME candidate window anchored in Claude/Codex TUIs.
 reveal_hidden_cursor_for_cjk_ime = true
 cjk_ime_agents = ["claude", "codex"]
+
+[keys]
+# Ghostty binds Cmd+1..9 to "Ctrl+B then the digit" (see ghostty/config),
+# so this binding is what makes Cmd+number jump to that tab.
+# It matches Herdr's default; kept explicit so the dependency is visible.
+switch_tab = "prefix+1..9"
+
+# Focus the rightmost tab. Herdr has no built-in "last tab" action, so this
+# runs the socket API through a helper script. Ghostty sends prefix+0 on Cmd+9
+# to follow the macOS convention where Cmd+9 jumps to the last tab.
+# Ctrl+B then 9 still goes to tab 9 via switch_tab above.
+[[keys.command]]
+key = "prefix+0"
+type = "shell"
+command = "$HOME/.local/bin/herdr-focus-last-tab"
